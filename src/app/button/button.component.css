@@ -1,0 +1,11 @@
+.big-button {
+  color: white;
+  background-color: red;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.big-button-text {
+  font-size: 200%;
+}

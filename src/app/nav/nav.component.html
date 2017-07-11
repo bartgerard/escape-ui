@@ -1,16 +1,28 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <a class="navbar-brand" href="#">escapeR</a>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <!--
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            -->
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Pin Code">
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Start</button>
-        </form>
-    </div>
+  <a class="navbar-brand" href="#">escapeR</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <!--
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        -->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2"
+             type="text"
+             placeholder="Pin Code">
+      <button class="btn btn-success my-2 my-sm-0"
+              type="submit"
+              (click)="start($event)">Start
+      </button>
+      <!--
+      <button pButton
+              type="button"
+              class="btn ui-button-success my-sm-0"
+              (click)="start($event)" label="Start">
+      </button>
+              -->
+    </form>
+  </div>
 </nav>
