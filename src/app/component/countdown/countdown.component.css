@@ -1,0 +1,7 @@
+.duration {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: '24Font';
+  font-size: 1200%;
+}

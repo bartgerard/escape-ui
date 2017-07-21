@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Mission} from "./mission";
+import {Mission} from "../model/mission";
 
 @Injectable()
 export class MissionService {
