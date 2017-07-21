@@ -33,3 +33,8 @@ npm install font-awesome --save
 npm install ng2-bootstrap bootstrap --save
 
 http://stackoverflow.com/questions/37649164/how-to-add-bootstrap-to-an-angular-cli-project
+
+----
+Run
+
+ng serve --host 192.168.0.178 --port 4200
