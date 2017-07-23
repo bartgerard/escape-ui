@@ -1,17 +1,27 @@
-<div class=" module dark">
+<div class="module dark noScroll">
   <div class="row top5">
-    <div class="col-5">
-      <app-countdown-dark
-        [enableMilliseconds]="false"
-        (beep)="onBeep($event)"></app-countdown-dark>
+    <app-countdown-dark class="col-5"
+                        [enableMilliseconds]="false"
+                        (beep)="onBeep($event)"></app-countdown-dark>
+    <app-mission-light class="col-3"></app-mission-light>
+    <!--
+    <div class="col-1 center">
+      <app-stop-light [active]="false"></app-stop-light>
     </div>
-    <div class="col-1"></div>
+    <div class="col-1 center">
+      <app-stop-light [active]="false"></app-stop-light>
+    </div>
+    <div class="col-1 center">
+      <app-stop-light [active]="false"></app-stop-light>
+    </div>
+    -->
+    <app-codepad class="col-4 center"
+                 (outcome)="onOutcome($event)"></app-codepad>
   </div>
-  <div class="row">
-    <div class="col-6 row top5">
-      <app-key-pad class="col-7" [maxLength]="7"></app-key-pad>
-      <app-base4 class="col-5" [value]="52"></app-base4>
-    </div>
+  <div class="row top5">
+    <app-key-pad class="col-3" [maxLength]="7"></app-key-pad>
+    <app-base4 class="col-3" [value]="52"></app-base4>
+    <app-wire class="col-6 center"></app-wire>
   </div>
 </div>
 <!--<app-button></app-button>-->

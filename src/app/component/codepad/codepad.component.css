@@ -1,0 +1,10 @@
+.key {
+  font-size: 2em;
+  border-radius: 0;
+  background-color: darkgray;
+  width: 100%;
+}
+
+input[type="button"] {
+  -webkit-border-radius: 0;
+}

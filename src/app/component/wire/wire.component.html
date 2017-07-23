@@ -1,0 +1,3 @@
+<div class="module">
+  <img *ngFor="let wireUri of wireUris; let i = index" class="wire" [src]="wireUri" (click)="cut(i)">
+</div>

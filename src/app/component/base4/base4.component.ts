@@ -11,7 +11,7 @@ export class Base4Component implements OnInit {
   baseUri = 'assets/base4/';
   extension = '.svg';
 
-  top = this.baseUri + 'black' + this.extension
+  top = this.baseUri + 'black' + this.extension;
 
   @Input('value')
   public value: number = 0;

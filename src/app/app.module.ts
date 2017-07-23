@@ -22,6 +22,11 @@ import {CountdownDarkComponent} from './component/countdown-dark/countdown-dark.
 import { BombComponent } from './component/bomb/bomb.component';
 import { KeyPadComponent } from './component/key-pad/key-pad.component';
 import { Base4Component } from './component/base4/base4.component';
+import { LightComponent } from './component/light/light.component';
+import { StopLightComponent } from './component/stop-light/stop-light.component';
+import { WireComponent } from './component/wire/wire.component';
+import { CodepadComponent } from './component/codepad/codepad.component';
+import { MissionLightComponent } from './component/mission-light/mission-light.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { Base4Component } from './component/base4/base4.component';
     CountdownDarkComponent,
     BombComponent,
     KeyPadComponent,
-    Base4Component
+    Base4Component,
+    LightComponent,
+    StopLightComponent,
+    WireComponent,
+    CodepadComponent,
+    MissionLightComponent
   ],
   imports: [
     BrowserModule,
