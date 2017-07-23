@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-base4',
@@ -21,8 +22,28 @@ export class Base4Component implements OnInit {
   }
 
   ngOnInit() {
-    this.imageUris = [];
+    this.render();
 
+    this.demo();
+  }
+
+  demo(): void {
+    this.value = 0;
+
+    Observable.interval(1000)
+      .subscribe(() => {
+        this.value = this.value + 1;
+
+        if (this.value > 131071) {
+          this.value = 0;
+        }
+
+        this.render();
+      });
+  }
+
+  render(): void {
+    this.imageUris = [];
     this.renderBase(this.value, 0);
   }
 
@@ -30,7 +51,7 @@ export class Base4Component implements OnInit {
     const remainder = value % 4;
     const nextValue = (value - remainder) / 4;
 
-    console.log(remainder + ' ' + nextValue);
+    //console.log(remainder + ' ' + nextValue);
 
     if (remainder == 1) {
       this.imageUris.push(this.baseUri + Math.pow(4, base) + this.extension);

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BeepEvent} from "../../model/beep-event";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-bomb',
