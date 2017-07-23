@@ -38,3 +38,13 @@ http://stackoverflow.com/questions/37649164/how-to-add-bootstrap-to-an-angular-c
 Run
 
 ng serve --host 192.168.0.178 --port 4200
+
+----
+Run build
+
+npm install http-server -g
+
+http-server ./dist
+
+
+ifconfig |grep inet

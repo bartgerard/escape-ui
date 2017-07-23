@@ -1,0 +1,26 @@
+.display-number {
+  min-height: 1.5em;
+  font-family: '24Font';
+  font-size: 3em;
+  color: darkred;
+  text-align: center;
+}
+
+.key {
+  font-size: 2em;
+  border-radius: 0;
+  background-color: darkgray;
+}
+
+.display {
+  background: black;
+  padding: 5% 10%;
+}
+
+.module {
+  border: 5px solid grey;
+}
+
+input[type="button"] {
+  -webkit-border-radius: 0;
+}

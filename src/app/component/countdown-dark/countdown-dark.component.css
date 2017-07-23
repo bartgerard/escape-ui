@@ -1,0 +1,18 @@
+.duration {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: '24Font';
+  font-size: 1200%;
+  line-height: 100%;
+  color: #898900;
+  padding-bottom: 3%;
+}
+
+.dark {
+  background-color: black;
+}
+
+.counter-module {
+  border: 5px solid grey;
+}

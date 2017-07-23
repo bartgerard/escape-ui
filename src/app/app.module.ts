@@ -18,6 +18,10 @@ import {StartComponent} from "./component/start/start.component";
 import {Mission1Component} from "./component/mission1/mission1.component";
 import {CountdownComponent} from "./component/countdown/countdown.component";
 import {ButtonComponent} from "./component/button/button.component";
+import {CountdownDarkComponent} from './component/countdown-dark/countdown-dark.component';
+import { BombComponent } from './component/bomb/bomb.component';
+import { KeyPadComponent } from './component/key-pad/key-pad.component';
+import { Base4Component } from './component/base4/base4.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import {ButtonComponent} from "./component/button/button.component";
     StartComponent,
     Mission1Component,
     CountdownComponent,
-    ButtonComponent
+    ButtonComponent,
+    CountdownDarkComponent,
+    BombComponent,
+    KeyPadComponent,
+    Base4Component
   ],
   imports: [
     BrowserModule,

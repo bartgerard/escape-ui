@@ -1,5 +1,5 @@
 <!--https://codepen.io/garethdweaver/pen/eNpWBb-->
-<div class="duration">
+<div class="duration counter-module dark" (click)="tick()">
   <div *ngIf="enableDays">{{duration?.days}}d</div>
   <div *ngIf="enableDHours">{{duration?.hours | number:'2.0-0'}}:</div>
   <div>{{duration?.minutes | number:'2.0-0'}}</div>

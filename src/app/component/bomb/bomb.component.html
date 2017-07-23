@@ -1,0 +1,17 @@
+<div class=" module dark">
+  <div class="row top5">
+    <div class="col-5">
+      <app-countdown-dark
+        [enableMilliseconds]="false"
+        (beep)="onBeep($event)"></app-countdown-dark>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-6 row top5">
+      <app-key-pad class="col-7" [maxLength]="7"></app-key-pad>
+      <app-base4 class="col-5" [value]="50"></app-base4>
+    </div>
+  </div>
+</div>
+<!--<app-button></app-button>-->

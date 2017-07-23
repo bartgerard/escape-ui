@@ -1,0 +1,15 @@
+.module {
+  position: relative;
+  z-index: 1030;
+  margin-top: -5rem;
+  border: 5px solid grey;
+  height: 100vh;
+}
+
+.dark {
+  background: #616161;
+}
+
+.top5 {
+  margin-top: 5%;
+}

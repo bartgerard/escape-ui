@@ -1,19 +1,19 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Observable} from "rxjs/Rx";
 import {MissionService} from "../../service/mission.service";
 import {Mission} from "../../model/mission";
 import {Duration} from "../../model/duration";
+import {Observable} from "rxjs/Observable";
 import {BeepEvent} from "../../model/beep-event";
 
 @Component({
-  selector: 'app-countdown',
-  templateUrl: './countdown.component.html',
-  styleUrls: ['./countdown.component.css'],
+  selector: 'app-countdown-dark',
+  templateUrl: './countdown-dark.component.html',
+  styleUrls: ['./countdown-dark.component.css'],
   providers: [
     MissionService
   ]
 })
-export class CountdownComponent implements OnInit {
+export class CountdownDarkComponent implements OnInit {
   private mission: Mission;
   private duration: Duration;
 
@@ -26,7 +26,7 @@ export class CountdownComponent implements OnInit {
   @Input('enableMilliseconds')
   public enableMilliseconds: boolean = true;
 
-  @Output()
+  @Output('beep')
   public beep: EventEmitter<BeepEvent> = new EventEmitter<BeepEvent>();
 
   constructor(
@@ -38,7 +38,7 @@ export class CountdownComponent implements OnInit {
     this.missionService.start();
     this.mission = this.missionService.mission;
 
-    Observable.interval(100)
+    Observable.interval(1000)
       .subscribe(() => {
         let now = new Date();
 
@@ -46,6 +46,7 @@ export class CountdownComponent implements OnInit {
           this.duration = Duration.between(now, now);
         } else {
           this.duration = Duration.between(now, this.mission.end);
+          this.beep.emit(new BeepEvent());
         }
       });
 
@@ -54,9 +55,12 @@ export class CountdownComponent implements OnInit {
         let now = new Date();
 
         if (now.getTime() < this.mission.end.getTime()) {
-          this.beep.emit(new BeepEvent());
         }
       });
+  }
+
+  tick() {
+    this.beep.emit(new BeepEvent());
   }
 
 }

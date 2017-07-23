@@ -1,0 +1,27 @@
+<div class="container module">
+  <div class="row">
+    <div class="col-12 display">
+      <div class="display-number center">{{display}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <input type="button" class="col-4 key" (click)="addKey(7)" value="7">
+    <input type="button" class="col-4 key" (click)="addKey(8)" value="8">
+    <input type="button" class="col-4 key" (click)="addKey(9)" value="9">
+  </div>
+  <div class="row">
+    <input type="button" class="col-4 key" (click)="addKey(4)" value="4">
+    <input type="button" class="col-4 key" (click)="addKey(5)" value="5">
+    <input type="button" class="col-4 key" (click)="addKey(6)" value="6">
+  </div>
+  <div class="row">
+    <input type="button" class="col-4 key" (click)="addKey(1)" value="1">
+    <input type="button" class="col-4 key" (click)="addKey(2)" value="2">
+    <input type="button" class="col-4 key" (click)="addKey(3)" value="3">
+  </div>
+  <div class="row">
+    <input type="button" class="col-4 key" style="color: green;" (click)="enter()" value="V">
+    <input type="button" class="col-4 key" (click)="addKey(0)" value="0">
+    <input type="button" class="col-4 key" style="color: darkred;" (click)="clear()" value="C">
+  </div>
+</div>

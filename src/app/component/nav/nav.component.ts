@@ -16,7 +16,7 @@ export class NavComponent implements OnInit {
   }
 
   start(event) {
-    this.router.navigate(['./mission1']);
+    this.router.navigate(['./bomb']);
   }
 
 }
