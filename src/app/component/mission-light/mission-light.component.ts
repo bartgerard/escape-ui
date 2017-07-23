@@ -27,6 +27,7 @@ export class MissionLightComponent implements OnInit {
     for (let light of this.lights) {
       if (light.color === 'green' && light.active == false) {
         light.active = true;
+        break;
       }
     }
   }
