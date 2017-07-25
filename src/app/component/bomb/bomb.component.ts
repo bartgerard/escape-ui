@@ -31,7 +31,7 @@ export class BombComponent implements OnInit {
   private base4: Base4Component;
 
   @Input('enableSound')
-  public enableSound: boolean = false;
+  public enableSound: boolean = true;
 
   constructor() {
   }
