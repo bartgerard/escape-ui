@@ -2,8 +2,12 @@
   <div class="row top5">
     <app-countdown-dark class="col-5"
                         [enableMilliseconds]="false"
-                        (beep)="onBeep($event)"></app-countdown-dark>
-    <app-mission-light class="col-3"></app-mission-light>
+                        (beep)="onBeep($event)">
+    </app-countdown-dark>
+    <app-mission-light class="col-3"
+                       [totalSuccesses]="3"
+                       [totalFailures]="3">
+    </app-mission-light>
     <!--
     <div class="col-1 center">
       <app-stop-light [active]="false"></app-stop-light>

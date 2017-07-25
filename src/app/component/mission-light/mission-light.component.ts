@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Light} from "../../model/light";
 
 @Component({
@@ -10,8 +10,17 @@ export class MissionLightComponent implements OnInit {
 
   lights: Light[] = [];
 
-  constructor(
-  ) {
+  @Input('totalSuccesses')
+  private totalSuccesses = 0;
+
+  @Input('totalFailures')
+  private totalFailures = 0;
+
+  private nbSuccesses = 0;
+
+  private nbFailures = 0;
+
+  constructor() {
   }
 
   ngOnInit() {
@@ -23,22 +32,31 @@ export class MissionLightComponent implements OnInit {
     this.lights.push(new Light('red', false));
   }
 
-  public succeed(): void {
-    for (let light of this.lights) {
-      if (light.color === 'green' && light.active == false) {
-        light.active = true;
-        break;
-      }
+  draw(): void {
+    this.lights = [];
+
+    for (let i = 0; i < this.totalSuccesses; i++) {
+      this.lights.push(new Light('green', i < this.nbSuccesses));
+    }
+    for (let i = 0; i < this.totalFailures; i++) {
+      this.lights.push(new Light('red', i < this.nbFailures));
     }
   }
 
-  public fail(): void {
-    for (let light of this.lights) {
-      if (light.color === 'red' && light.active == false) {
-        light.active = true;
-        break;
-      }
+  public succeed(): void {
+    if (this.nbSuccesses < this.totalSuccesses) {
+      this.nbSuccesses++;
     }
+
+    this.draw();
+  }
+
+  public fail(): void {
+    if (this.nbFailures < this.totalFailures) {
+      this.nbFailures++;
+    }
+
+    this.draw();
   }
 
 }
