@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from "rxjs/Observable";
+import {OutcomeEvent} from "../../model/outcome-event";
 
 @Component({
   selector: 'app-base4',
@@ -8,15 +9,15 @@ import {Observable} from "rxjs/Observable";
 })
 export class Base4Component implements OnInit {
 
-  baseUri = 'assets/base4/';
-  extension = '.svg';
+  private baseUri = 'assets/base4/';
+  private extension = '.svg';
 
-  top = this.baseUri + 'black' + this.extension;
+  public top = this.baseUri + 'black' + this.extension;
+
+  imageUris: string[] = [];
 
   @Input('value')
   public value: number = 0;
-
-  imageUris: string[] = [];
 
   constructor() {
   }
@@ -24,7 +25,7 @@ export class Base4Component implements OnInit {
   ngOnInit() {
     this.render();
 
-    this.demo();
+    //this.demo();
   }
 
   demo(): void {

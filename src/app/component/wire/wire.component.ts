@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {OutcomeEvent} from "../../model/outcome-event";
 
 @Component({
   selector: 'app-wire',
@@ -7,10 +8,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class WireComponent implements OnInit {
 
-  baseUri = 'assets/wires/';
-  extension = '.png';
+  private baseUri = 'assets/wires/';
+  private extension = '.png';
 
-  wireUris: string[] = [];
+  private wireUris: string[] = [];
+
+  private correctWires: boolean[] = [true, false, false, true, false];
+
+  @Input('missionId')
+  public missionId: number = 0;
+
+  @Output('outcome')
+  public outcome: EventEmitter<OutcomeEvent> = new EventEmitter<OutcomeEvent>();
 
   constructor() {
   }
@@ -29,6 +38,20 @@ export class WireComponent implements OnInit {
     const tmp = this.wireUris;
     tmp[index] = this.baseUri + 'wire_' + index + '_cut' + this.extension;
     this.wireUris = tmp;
+
+    if (this.correctWires[index]) {
+      this.correctWires[index] = false;
+
+      for (let correctWire of this.correctWires) {
+        if (correctWire) {
+          return;
+        }
+      }
+
+      this.outcome.emit(new OutcomeEvent(this.missionId, true));
+    } else {
+      this.outcome.emit(new OutcomeEvent(this.missionId, false));
+    }
   }
 
 }

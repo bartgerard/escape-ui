@@ -11,14 +11,14 @@ export class MissionLightComponent implements OnInit {
   lights: Light[] = [];
 
   @Input('totalSuccesses')
-  private totalSuccesses = 0;
+  public totalSuccesses = 0;
 
   @Input('totalFailures')
-  private totalFailures = 0;
+  public totalFailures = 0;
 
-  private nbSuccesses = 0;
+  public nbSuccesses = 0;
 
-  private nbFailures = 0;
+  public nbFailures = 0;
 
   constructor() {
   }

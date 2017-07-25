@@ -4,6 +4,8 @@ import {Mission} from "../../model/mission";
 import {Duration} from "../../model/duration";
 import {Observable} from "rxjs/Observable";
 import {BeepEvent} from "../../model/beep-event";
+import {Subscription} from "rxjs/Subscription";
+import {TimeoutEvent} from "../../model/timeout-event";
 
 @Component({
   selector: 'app-countdown-dark',
@@ -18,16 +20,21 @@ export class CountdownDarkComponent implements OnInit {
   private duration: Duration;
 
   @Input('enableDays')
-  public enableDays: boolean = false;
+  private enableDays: boolean = false;
 
   @Input('enableHours')
-  public enableHours: boolean = false;
+  private enableHours: boolean = false;
 
   @Input('enableMilliseconds')
-  public enableMilliseconds: boolean = true;
+  private enableMilliseconds: boolean = true;
 
   @Output('beep')
-  public beep: EventEmitter<BeepEvent> = new EventEmitter<BeepEvent>();
+  private beep: EventEmitter<BeepEvent> = new EventEmitter<BeepEvent>();
+
+  @Output('timeout')
+  private timeout: EventEmitter<TimeoutEvent> = new EventEmitter<TimeoutEvent>();
+
+  private subscription: Subscription;
 
   constructor(
     public missionService: MissionService
@@ -38,29 +45,27 @@ export class CountdownDarkComponent implements OnInit {
     this.missionService.start();
     this.mission = this.missionService.mission;
 
-    Observable.interval(1000)
+    this.subscription = Observable.interval(1000)
       .subscribe(() => {
         let now = new Date();
 
         if (now.getTime() > this.mission.end.getTime()) {
           this.duration = Duration.between(now, now);
+          this.subscription.unsubscribe();
+          this.timeout.emit(new TimeoutEvent());
         } else {
           this.duration = Duration.between(now, this.mission.end);
           this.beep.emit(new BeepEvent());
         }
       });
-
-    Observable.interval(1000)
-      .subscribe(() => {
-        let now = new Date();
-
-        if (now.getTime() < this.mission.end.getTime()) {
-        }
-      });
   }
 
-  tick() {
+  tick(): void {
     this.beep.emit(new BeepEvent());
+  }
+
+  stop(): void {
+    this.subscription.unsubscribe();
   }
 
 }

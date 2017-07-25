@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {OutcomeEvent} from "../../model/outcome-event";
 
 @Component({
   selector: 'app-key-pad',
@@ -11,6 +12,15 @@ export class KeyPadComponent implements OnInit {
 
   @Input('maxLength')
   public maxLength: number = 0;
+
+  @Input('value')
+  public value: number = 0;
+
+  @Input('missionId')
+  public missionId: number = 0;
+
+  @Output('outcome')
+  private outcome: EventEmitter<OutcomeEvent> = new EventEmitter<OutcomeEvent>();
 
   constructor() {
   }
@@ -29,6 +39,12 @@ export class KeyPadComponent implements OnInit {
   }
 
   enter() {
+    if (this.display === '' + this.value) {
+      this.outcome.emit(new OutcomeEvent(this.missionId, true));
+    } else {
+      this.outcome.emit(new OutcomeEvent(this.missionId, false));
+    }
+
     this.display = '';
   }
 
