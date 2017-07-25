@@ -40,6 +40,7 @@ export class KeyPadComponent implements OnInit {
 
   enter() {
     if (this.display === '' + this.value) {
+      this.value = null;
       this.outcome.emit(new OutcomeEvent(this.missionId, true));
     } else {
       this.outcome.emit(new OutcomeEvent(this.missionId, false));

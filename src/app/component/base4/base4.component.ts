@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {OutcomeEvent} from "../../model/outcome-event";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-base4',
@@ -17,21 +18,22 @@ export class Base4Component implements OnInit {
   imageUris: string[] = [];
 
   @Input('value')
-  public value: number = 0;
+  private value: number = 0;
+
+  @Input('missionId')
+  public missionId: number = 0;
+
+  private subscription: Subscription;
 
   constructor() {
   }
 
   ngOnInit() {
     this.render();
-
-    //this.demo();
   }
 
   demo(): void {
-    this.value = 0;
-
-    Observable.interval(1000)
+    this.subscription = Observable.interval(1000)
       .subscribe(() => {
         this.value = this.value + 1;
 
@@ -41,6 +43,10 @@ export class Base4Component implements OnInit {
 
         this.render();
       });
+  }
+
+  stop(): void {
+    this.subscription.unsubscribe();
   }
 
   render(): void {

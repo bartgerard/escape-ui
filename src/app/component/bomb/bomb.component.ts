@@ -7,6 +7,7 @@ import {Light} from "../../model/light";
 import {MissionLightComponent} from "../mission-light/mission-light.component";
 import {CountdownDarkComponent} from "../countdown-dark/countdown-dark.component";
 import {TimeoutEvent} from "../../model/timeout-event";
+import {Base4Component} from "../base4/base4.component";
 
 @Component({
   selector: 'app-bomb',
@@ -25,6 +26,9 @@ export class BombComponent implements OnInit {
 
   @ViewChild(CountdownDarkComponent)
   private countdown: CountdownDarkComponent;
+
+  @ViewChild(Base4Component)
+  private base4: Base4Component;
 
   @Input('enableSound')
   public enableSound: boolean = false;
@@ -50,8 +54,13 @@ export class BombComponent implements OnInit {
       this.audioSuccess.play();
       this.missionLights.succeed();
 
+      if (this.base4.missionId === event.missionId) {
+        this.base4.demo();
+      }
+
       if (this.missionLights.totalSuccesses == this.missionLights.nbSuccesses) {
         this.countdown.stop();
+        //this.base4.stop();
       }
     } else {
       this.audioFailure.play();
