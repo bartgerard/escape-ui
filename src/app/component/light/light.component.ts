@@ -8,8 +8,8 @@ import {Observable} from "rxjs/Observable";
 })
 export class LightComponent implements OnInit {
 
-  baseUri = 'assets/lights/';
-  extension = '.svg';
+  private baseUri = 'assets/lights/';
+  private extension = '.svg';
 
   @Input('color')
   public color: string = 'green';

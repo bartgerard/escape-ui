@@ -9,14 +9,16 @@ import {ButtonModule} from "primeng/primeng";
 })
 export class NavComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
   }
 
-  start(event) {
-    this.router.navigate(['./bomb']);
+  start(pin: string) {
+    this.router.navigate(['./mission1']);
   }
 
 }

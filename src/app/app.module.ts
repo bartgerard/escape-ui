@@ -15,7 +15,6 @@ import {HeaderComponent} from "./component/header/header.component";
 import {NavComponent} from "./component/nav/nav.component";
 import {FooterComponent} from "./component/footer/footer.component";
 import {StartComponent} from "./component/start/start.component";
-import {Mission1Component} from "./component/mission1/mission1.component";
 import {CountdownComponent} from "./component/countdown/countdown.component";
 import {ButtonComponent} from "./component/button/button.component";
 import {CountdownDarkComponent} from './component/countdown-dark/countdown-dark.component';
@@ -27,6 +26,10 @@ import { StopLightComponent } from './component/stop-light/stop-light.component'
 import { WireComponent } from './component/wire/wire.component';
 import { CodepadComponent } from './component/codepad/codepad.component';
 import { MissionLightComponent } from './component/mission-light/mission-light.component';
+import {Mission1Component} from "./component/mission1/mission1.component";
+import { Mission2Component } from './component/mission2/mission2.component';
+import { Mission3Component } from './component/mission3/mission3.component';
+import { Mission4Component } from './component/mission4/mission4.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,6 @@ import { MissionLightComponent } from './component/mission-light/mission-light.c
     NavComponent,
     FooterComponent,
     StartComponent,
-    Mission1Component,
     CountdownComponent,
     ButtonComponent,
     CountdownDarkComponent,
@@ -46,7 +48,11 @@ import { MissionLightComponent } from './component/mission-light/mission-light.c
     StopLightComponent,
     WireComponent,
     CodepadComponent,
-    MissionLightComponent
+    MissionLightComponent,
+    Mission1Component,
+    Mission2Component,
+    Mission3Component,
+    Mission4Component
   ],
   imports: [
     BrowserModule,

@@ -60,7 +60,7 @@ export class BombComponent implements OnInit {
 
       if (this.missionLights.totalSuccesses == this.missionLights.nbSuccesses) {
         this.countdown.stop();
-        //this.base4.stop();
+        this.base4.stop();
       }
     } else {
       this.audioFailure.play();
