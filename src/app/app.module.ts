@@ -6,7 +6,7 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {
   ButtonModule,
-  CheckboxModule,
+  CheckboxModule, DataListModule,
   DropdownModule,
   InputTextModule
 } from 'primeng/primeng';
@@ -64,7 +64,8 @@ import { OverviewComponent } from './component/overview/overview.component';
     CheckboxModule,
     DropdownModule,
     InputTextModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataListModule
   ],
   providers: [],
   bootstrap: [

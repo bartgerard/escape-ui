@@ -1,0 +1,18 @@
+.team-item {
+  padding: 1.5em;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.ui-g > div {
+  padding: .4em;
+}
+
+.ui-g .ui-g-10 {
+  font-weight: bold;
+}
+
+@media (max-width: 40em) {
+  .car-details {
+    text-align:center;
+  }
+}

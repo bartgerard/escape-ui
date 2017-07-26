@@ -6,6 +6,7 @@ import {BombComponent} from "./component/bomb/bomb.component";
 import {Mission3Component} from "./component/mission3/mission3.component";
 import {Mission2Component} from "./component/mission2/mission2.component";
 import {Mission4Component} from "./component/mission4/mission4.component";
+import {OverviewComponent} from "./component/overview/overview.component";
 
 const routes: Routes = [
   {path: '', component: StartComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'mission2', component: Mission2Component},
   {path: 'mission3', component: Mission3Component},
   {path: 'mission4', component: Mission4Component},
+  {path: 'overview', component: OverviewComponent},
   {path: 'bomb', component: BombComponent}
 ];
 

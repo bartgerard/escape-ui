@@ -1,3 +1,34 @@
-<p>
-  overview works!
-</p>
+<div class="container">
+  <div class="starter-template">
+    <h1 class="paladin">Hall of Fame</h1>
+  </div>
+  <p-dataList [value]="teams" [paginator]="false" [rows]="4">
+    <p-header>
+      Teams
+    </p-header>
+    <ng-template let-team let-i="index" pTemplate="item">
+      <div class="ui-g ui-fluid team-item">
+        <div class="ui-g-1 ui-md-1 center">
+          #{{i + 1}}
+        </div>
+        <div class="ui-g-11 ui-md-2 center" style="text-align:center">
+          <div class="fa fa-user-secret fa-5x"></div>
+          {{team.name}}
+        </div>
+
+        <div class="ui-g-12 ui-md-9 car-details">
+          <div class="ui-g">
+            <div class="ui-g-2 ui-sm-6">Vooruitgang:</div>
+            <div class="ui-g-10 ui-sm-6">{{team.nbMissions}} / {{totalNbMissions}}</div>
+
+            <div class="ui-g-2 ui-sm-6">Score:</div>
+            <div class="ui-g-10 ui-sm-6">{{team.score}}</div>
+
+            <div class="ui-g-2 ui-sm-6">Todo:</div>
+            <div class="ui-g-10 ui-sm-6">C</div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataList>
+</div>
