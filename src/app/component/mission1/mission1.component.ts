@@ -24,9 +24,9 @@ export class Mission1Component implements OnInit {
   ngOnInit() {
 
     let subscription: Subscription = Observable.of(0)
-      .delay(5000)
+      .delay(1000)
       .subscribe(() => {
-        //this.videoPlayer.nativeElement.play();
+        this.videoPlayer.nativeElement.play();
         subscription.unsubscribe();
       });
 

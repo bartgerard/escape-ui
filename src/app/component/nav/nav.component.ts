@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {ButtonModule} from "primeng/primeng";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-nav',
@@ -17,7 +18,9 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  start(pin: string) {
+  start(pin: string, form: NgForm) {
+    form.reset();
+
     switch (pin) {
       case '1':
         this.router.navigate(['./mission1']);
@@ -31,12 +34,6 @@ export class NavComponent implements OnInit {
       case '4':
         this.router.navigate(['./mission4']);
         break;
-    }
-  }
-
-  keyDown(pin: string, event): void {
-    if (event.keyCode == 13) {
-      this.start(pin);
     }
   }
 
