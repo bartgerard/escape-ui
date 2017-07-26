@@ -12,7 +12,8 @@
       <input #pin
              class="form-control mr-sm-2"
              type="password"
-             placeholder="Pin Code">
+             placeholder="Pin Code"
+             (keydown)="keyDown(pin.value, $event)">
       <button class="btn btn-success my-2 my-sm-0"
               type="button"
               (click)="start(pin.value)">

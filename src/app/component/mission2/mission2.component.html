@@ -1,6 +1,41 @@
 <div class="container">
   <div class="starter-template">
-    <h1>Mission 1 - 01001001</h1>
-    <p class="lead">Log in door de code van jullie team in te vullen en vervolgens op start te klikken.</p>
+    <h1>Missie Spyglass</h1>
+    <p class="lead paladin">Speuren.</p>
+    <div class="fa fa-puzzle-piece fa-4x"></div>
+  </div>
+  <div class="starter-template row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <video #videoPlayer class="full">
+        <source src="../../../assets/video/test.mp4">
+        Browser not supported...
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h1>Mission Briefing</h1>
+      <p>
+        <i>Kamer 464 ook wel gekend als het droogkot</i> - Een geheimzinnige man met de initialen D.V. heeft hier
+        meermaals de nacht doorgebracht. Ongetwijfeld zal hij ook wat sporen hebben achtergelaten. Doorzoek de ruimte en
+        probeer te achterhalen wat dit individu van plan was. Elk spoor is belangrijk en kan ons helpen zijn of haar
+        kwaadaardige plan te saboteren.
+      </p>
+      <ul>
+        <li>Ga naar kamer 464 en probeer zoveel mogelijk sporen te vinden.</li>
+        <li>Verniel niets want dit zou wel eens een belangrijke hint kunnen zijn. Vermijd contaminatie van de crime
+          scene.
+        </li>
+        <li>Succesvol of niet, keer terug binnen de 15 minuten.</li>
+      </ul>
+    </div>
+    <div class="map col-6 container">
+      <img class="full" src="../../../assets/maps/map.png">
+      <div class="fa fa-crosshairs fa-3x arrow blink"></div>
+    </div>
+  </div>
+  <div class="starter-template">
+    This message will self destruct in {{duration?.minutes | number:'2.0-0'}}:{{duration?.seconds | number:'2.0-0'}}.
   </div>
 </div>

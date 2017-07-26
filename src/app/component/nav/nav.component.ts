@@ -18,7 +18,26 @@ export class NavComponent implements OnInit {
   }
 
   start(pin: string) {
-    this.router.navigate(['./mission1']);
+    switch (pin) {
+      case '1':
+        this.router.navigate(['./mission1']);
+        break;
+      case '2':
+        this.router.navigate(['./mission2']);
+        break;
+      case '3':
+        this.router.navigate(['./mission3']);
+        break;
+      case '4':
+        this.router.navigate(['./mission4']);
+        break;
+    }
+  }
+
+  keyDown(pin: string, event): void {
+    if (event.keyCode == 13) {
+      this.start(pin);
+    }
   }
 
 }

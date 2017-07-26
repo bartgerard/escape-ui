@@ -14,6 +14,12 @@ export class Duration {
     date2: Date
   ): Duration {
     let difference: number = Math.abs(date1.getTime() - date2.getTime());
+    return this.of(difference);
+  }
+
+  static of(
+    difference: number
+  ): Duration {
     const days: number = Math.floor(difference / (24 * 60 * 60 * 1000)) % 24 * 60 * 60;
 
     const hours: number = Math.floor(difference / (60 * 60 * 1000)) % (60 * 60);

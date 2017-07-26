@@ -1,10 +1,39 @@
 <div class="container">
   <div class="starter-template">
-    <h1>Mission 1 - 01001001</h1>
-    <p class="lead">Log in door de code van jullie team in te vullen en vervolgens op start te klikken.</p>
+    <h1>Missie Black Mamba</h1>
+    <p class="lead paladin">Sluipen.</p>
+    <div class="fa fa-microphone-slash fa-4x"></div>
   </div>
-  <video #videoPlayer>
-    <source src="../../../assets/video/test2.mov">
-    Browser not supported...
-  </video>
+  <div class="starter-template row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <video #videoPlayer class="full">
+        <source src="../../../assets/video/test.mp4">
+        Browser not supported...
+      </video>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h1>Mission Briefing</h1>
+      <p>
+        Verdachte personen verschuilen zich op de heuvel naast de nucleaire test site. We weten nog niet veel over de
+        vijand, maar hier werden duidelijk experimenten uitgevoerd. Besluip de locatie en probeer intel te verzamelen
+        over het vijandelijke wapen. Wordt je gezien door een verdachte, keer dan onmiddelijk terug naar basis en
+        verwittig een lid van het core team.
+      </p>
+      <ul>
+        <li>Besluip de heuvel zonder gezien te worden.</li>
+        <li>Wordt je gezien, keer dan onmiddelijk terug naar de basis.</li>
+        <li>Succesvol of niet, keer terug binnen de 15 minuten.</li>
+      </ul>
+    </div>
+    <div class="map col-6 container">
+      <img class="full" src="../../../assets/maps/map.png">
+      <div class="fa fa-crosshairs fa-3x arrow blink"></div>
+    </div>
+  </div>
+  <div class="starter-template">
+    This message will self destruct in {{duration?.minutes | number:'2.0-0'}}:{{duration?.seconds | number:'2.0-0'}}.
+  </div>
 </div>

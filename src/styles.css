@@ -26,6 +26,32 @@ body {
   src: url('assets/fonts/Open 24 Display St.ttf') ;
 }
 
+@font-face {
+  font-family: 'Paladin';
+  src: url('assets/fonts/PaladinFLF.ttf') ;
+}
+
+@font-face {
+  font-family: 'Viking';
+  src: url('assets/fonts/Viking_n.ttf') ;
+}
+
+.paladin {
+  font-family: 'Paladin';
+}
+
+.viking {
+  font-family: 'Viking';
+}
+
 .full {
   width: 100%;
+}
+
+.blink {
+  animation: blinker 1s ease-in-out infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
 }

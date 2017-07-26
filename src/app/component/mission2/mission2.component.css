@@ -1,0 +1,10 @@
+.map {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 67%;
+  left: 51%;
+  color: red;
+}

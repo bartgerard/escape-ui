@@ -9,6 +9,7 @@ import {Mission4Component} from "./component/mission4/mission4.component";
 
 const routes: Routes = [
   {path: '', component: StartComponent},
+  {path: 'start', component: StartComponent},
   {path: 'mission1', component: Mission1Component},
   {path: 'mission2', component: Mission2Component},
   {path: 'mission3', component: Mission3Component},
