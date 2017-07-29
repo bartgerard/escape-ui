@@ -1,0 +1,35 @@
+<div class="module dark noScroll">
+  <div class="row top5">
+    <app-countdown-dark class="col-5"
+                        [enableMilliseconds]="false"
+                        (beep)="onBeep($event)"
+                        (timeout)="onTimeout($event)">
+    </app-countdown-dark>
+    <app-mission-light class="col-3"
+                       [totalSuccesses]="3"
+                       [totalFailures]="3">
+    </app-mission-light>
+    <app-codepad class="col-4 center"
+                 [missionId]="1"
+                 (outcome)="onOutcome($event)"></app-codepad>
+  </div>
+  <div class="row top5">
+    <app-key-pad class="col-3"
+                 [maxLength]="7"
+                 [value]="52"
+                 [missionId]="2"
+                 (outcome)="onOutcome($event)">
+    </app-key-pad>
+    <app-base4 class="col-3"
+               [value]="52"
+               [missionId]="2">
+    </app-base4>
+    <app-wire class="col-6 center"
+              [missionId]="3"
+              (outcome)="onOutcome($event)">
+    </app-wire>
+  </div>
+</div>
+<div [class.active]="active" [class.inactive]="!active" (click)="start()">
+</div>
+<!--<app-button></app-button>-->

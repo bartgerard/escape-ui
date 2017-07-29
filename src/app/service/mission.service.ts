@@ -10,7 +10,7 @@ export class MissionService {
   }
 
   start() {
-    this.mission = Mission.of(new Date(), 12);
+    this.mission = Mission.of(new Date(), 10);
   }
 
 }

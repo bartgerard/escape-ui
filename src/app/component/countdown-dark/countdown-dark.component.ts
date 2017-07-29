@@ -10,13 +10,9 @@ import {TimeoutEvent} from "../../model/timeout-event";
 @Component({
   selector: 'app-countdown-dark',
   templateUrl: './countdown-dark.component.html',
-  styleUrls: ['./countdown-dark.component.css'],
-  providers: [
-    MissionService
-  ]
+  styleUrls: ['./countdown-dark.component.css']
 })
 export class CountdownDarkComponent implements OnInit {
-  private mission: Mission;
   private duration: Duration;
 
   @Input('enableDays')
@@ -36,25 +32,26 @@ export class CountdownDarkComponent implements OnInit {
 
   private subscription: Subscription;
 
-  constructor(
-    public missionService: MissionService
-  ) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.missionService.start();
-    this.mission = this.missionService.mission;
+  }
+
+  start() {
+    const end = new Date();
+    end.setMinutes(end.getMinutes() + 10);
 
     this.subscription = Observable.interval(1000)
       .subscribe(() => {
         let now = new Date();
 
-        if (now.getTime() > this.mission.end.getTime()) {
+        if (now.getTime() > end.getTime()) {
           this.duration = Duration.between(now, now);
           this.subscription.unsubscribe();
           this.timeout.emit(new TimeoutEvent());
         } else {
-          this.duration = Duration.between(now, this.mission.end);
+          this.duration = Duration.between(now, end);
           this.beep.emit(new BeepEvent());
         }
       });

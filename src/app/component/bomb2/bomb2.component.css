@@ -1,0 +1,32 @@
+.module {
+  position: relative;
+  z-index: 1030;
+  margin-top: -5rem;
+  height: 100vh;
+}
+
+.dark {
+  background: #616161;
+}
+
+.top5 {
+  margin-top: 5%;
+}
+
+.noScroll {
+  overflow: hidden;
+  position: fixed;
+}
+
+.inactive {
+  background: black;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  margin-top: -5rem;
+  z-index: 9999;
+}
+
+.active {
+  z-index: -9999;
+}

@@ -8,13 +8,15 @@ import {MissionLightComponent} from "../mission-light/mission-light.component";
 import {CountdownDarkComponent} from "../countdown-dark/countdown-dark.component";
 import {TimeoutEvent} from "../../model/timeout-event";
 import {Base4Component} from "../base4/base4.component";
+import {BombService} from "../../service/bomb.service";
 
 @Component({
-  selector: 'app-bomb',
-  templateUrl: './bomb.component.html',
-  styleUrls: ['./bomb.component.css']
+  selector: 'app-bomb2',
+  templateUrl: './bomb2.component.html',
+  styleUrls: ['./bomb2.component.css'],
+  providers: [BombService]
 })
-export class BombComponent implements OnInit {
+export class Bomb2Component implements OnInit {
 
   private audioBeep = new Audio('assets/audio/beep-08b.mp3');
   private audioFailure = new Audio('assets/audio/beep-03.mp3');
@@ -33,11 +35,25 @@ export class BombComponent implements OnInit {
   @Input('enableSound')
   public enableSound: boolean = true;
 
-  constructor() {
+  public active: boolean = false;
+
+  constructor(
+    private bombService: BombService
+  ) {
   }
 
   ngOnInit() {
-    this.countdown.start();
+    const subscription = Observable.interval(10000).subscribe(() =>
+      this.bombService.isActive().subscribe(isActive => {
+        if (isActive && !this.active) {
+          this.active = true;
+          this.countdown.start();
+        } else if (!isActive && this.active) {
+          this.active = false;
+          this.countdown.stop();
+        }
+      })
+    );
   }
 
   onBeep(event: BeepEvent) {
@@ -71,6 +87,10 @@ export class BombComponent implements OnInit {
         this.bomb.play();
       }
     }
+  }
+
+  start() {
+    this.audioBeep.play();
   }
 
 }
