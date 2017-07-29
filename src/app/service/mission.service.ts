@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Mission} from "../model/mission";
+import {Mission2} from "../model/mission2";
 
 @Injectable()
 export class MissionService {
 
-  public mission: Mission
+  public mission: Mission2
 
   constructor() {
   }
 
   start() {
-    this.mission = Mission.of(new Date(), 10);
+    this.mission = Mission2.of(new Date(), 10);
   }
 
 }

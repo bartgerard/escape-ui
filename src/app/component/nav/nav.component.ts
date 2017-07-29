@@ -2,16 +2,19 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {ButtonModule} from "primeng/primeng";
 import {NgForm} from "@angular/forms";
+import {TeamService} from "../../service/team.service";
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
+  providers: [TeamService]
 })
 export class NavComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private teamService: TeamService
   ) {
   }
 

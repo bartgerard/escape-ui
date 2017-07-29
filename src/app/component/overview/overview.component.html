@@ -16,17 +16,55 @@
           {{team.name}}
         </div>
 
-        <div class="ui-g-12 ui-md-9 car-details">
-          <div class="ui-g">
-            <div class="ui-g-2 ui-sm-6">Vooruitgang:</div>
-            <div class="ui-g-10 ui-sm-6">{{team.nbMissions}} / {{totalNbMissions}}</div>
-
-            <div class="ui-g-2 ui-sm-6">Score:</div>
-            <div class="ui-g-10 ui-sm-6">{{team.score}}</div>
-
-            <div class="ui-g-2 ui-sm-6">Todo:</div>
-            <div class="ui-g-10 ui-sm-6">C</div>
+        <div class="ui-g ui-g-12 ui-md-9">
+          <!--
+          <div class="ui-g-12 ui-md-5 car-details">
+            <div class="ui-g">
+              <div class="ui-g-6 ui-sm-6">Vooruitgang:</div>
+              <div class="ui-g-6 ui-sm-6">{{team.nbMissions}} / {{totalNbMissions}}</div>
+            </div>
           </div>
+
+          <div class="ui-g-12 ui-md-2 car-details">
+          </div>
+
+          <div class="ui-g-12 ui-md-5 car-details">
+            <div class="ui-g">
+              <div class="ui-g-6 ui-sm-5">Missie:</div>
+              <div class="ui-g-6 ui-sm-9">{{team.currentMission?.missionName}}</div>
+            </div>
+          </div>
+          -->
+
+          <div class="ui-g-12 ui-md-2 car-details">
+            <div class="ui-g">Missie</div>
+            <div class="ui-g">Voltooid</div>
+            <div class="ui-g">Score</div>
+            <div class="ui-g">Tijd</div>
+          </div>
+
+          <div class="ui-g-12 ui-md-2 car-details" *ngFor="let result of team.results">
+            <div class="ui-g center">
+              {{result.missionName}}
+            </div>
+            <div class="ui-g center">
+              {{result.status === 'FINISHED' ? 'x' : '-'}}
+            </div>
+            <div class="ui-g center">
+              {{result.score === 0 ? '-' : result.score}} {{result.bonus === 0 ? '' : ' (+' + result.bonus + ')'}}
+            </div>
+            <div class="ui-g center">
+              {{result.duration === 0 ? '-' : result.duration + 'm'}}
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-2 car-details">
+            <div class="ui-g center">Totaal</div>
+            <div class="ui-g center">{{team.nbMissions}} / {{team.totalNbMissions}}</div>
+            <div class="ui-g center">{{team.score}}</div>
+            <div class="ui-g center">{{team.duration}} / {{team.totalDuration}}m</div>
+          </div>
+
         </div>
       </div>
     </ng-template>

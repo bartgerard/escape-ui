@@ -4,6 +4,8 @@ import {MissionService} from "../../service/mission.service";
 import {Mission} from "../../model/mission";
 import {Duration} from "../../model/duration";
 import {BeepEvent} from "../../model/beep-event";
+import {TimeoutEvent} from "../../model/timeout-event";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-countdown',
@@ -29,31 +31,30 @@ export class CountdownComponent implements OnInit {
   @Output()
   public beep: EventEmitter<BeepEvent> = new EventEmitter<BeepEvent>();
 
+  @Output('timeout')
+  private timeout: EventEmitter<TimeoutEvent> = new EventEmitter<TimeoutEvent>();
+
+  private subscription: Subscription;
+
   constructor(
     public missionService: MissionService
   ) {
   }
 
   ngOnInit() {
-    this.missionService.start();
-    this.mission = this.missionService.mission;
+    const end = new Date();
+    end.setMinutes(end.getMinutes() + 10);
 
-    Observable.interval(100)
+    this.subscription = Observable.interval(1000)
       .subscribe(() => {
         let now = new Date();
 
-        if (now.getTime() > this.mission.end.getTime()) {
+        if (now.getTime() > end.getTime()) {
           this.duration = Duration.between(now, now);
+          this.subscription.unsubscribe();
+          this.timeout.emit(new TimeoutEvent());
         } else {
-          this.duration = Duration.between(now, this.mission.end);
-        }
-      });
-
-    Observable.interval(1000)
-      .subscribe(() => {
-        let now = new Date();
-
-        if (now.getTime() < this.mission.end.getTime()) {
+          this.duration = Duration.between(now, end);
           this.beep.emit(new BeepEvent());
         }
       });

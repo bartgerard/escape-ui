@@ -1,25 +1,35 @@
 import {Component, OnInit} from '@angular/core';
 import {Team} from "../../model/team";
+import {TeamService} from "../../service/team.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.css']
+  styleUrls: ['./overview.component.css'],
+  providers: [TeamService]
 })
 export class OverviewComponent implements OnInit {
 
-  private totalNbMissions = 4;
-
   private teams: Team[] = [];
 
-  constructor() {
+  constructor(
+    private teamService: TeamService
+  ) {
   }
 
   ngOnInit() {
-    this.teams.push(new Team('Alfa', 2));
-    this.teams.push(new Team('Beta', 2));
-    this.teams.push(new Team('Gamma', 2));
-    this.teams.push(new Team('Delta', 2));
+    this.refresh();
+
+    Observable.interval(10000).subscribe(() => {
+      this.refresh();
+    });
+  }
+
+  refresh(): void {
+    this.teamService.teams().subscribe(res => {
+      this.teams = res;
+    })
   }
 
 }
