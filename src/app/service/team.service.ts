@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {Team} from "../model/team";
+import {MissionResult} from "../model/mission-result";
 
 @Injectable()
 export class TeamService {
@@ -15,6 +16,13 @@ export class TeamService {
 
   teams(): Observable<Team[]> {
     const url = `${this.apiRoot}/teams`;
+    return this.http.get(url).map(res => {
+      return res.json();
+    });
+  }
+
+  login(password: string): Observable<MissionResult> {
+    const url = `${this.apiRoot}/teams/login?password=${password}`;
     return this.http.get(url).map(res => {
       return res.json();
     });

@@ -24,20 +24,24 @@ export class NavComponent implements OnInit {
   start(pin: string, form: NgForm) {
     form.reset();
 
-    switch (pin) {
-      case '1':
-        this.router.navigate(['./mission1']);
-        break;
-      case '2':
-        this.router.navigate(['./mission2']);
-        break;
-      case '3':
-        this.router.navigate(['./mission3']);
-        break;
-      case '4':
-        this.router.navigate(['./mission4']);
-        break;
-    }
+    this.teamService.login(pin).subscribe(mission => {
+      switch (mission.mission) {
+        case 'BLACK_MAMBA':
+          this.router.navigate(['./mission1']);
+          break;
+        case 'SPYGLASS':
+          this.router.navigate(['./mission2']);
+          break;
+        case 'DIGITAL_FORTRESS':
+          this.router.navigate(['./mission3']);
+          break;
+        case 'MINOTAUR':
+          this.router.navigate(['./mission4']);
+          break;
+      }
+    });
+
+
   }
 
 }
