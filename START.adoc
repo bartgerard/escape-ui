@@ -43,6 +43,7 @@ ng serve --host 192.168.0.178 --port 4200
 
 ???
 ng build -prod -bh /app/
+ng build --prod
 
 
 ----
