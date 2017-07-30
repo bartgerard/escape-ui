@@ -44,6 +44,9 @@ Run build
 
 npm install http-server -g
 
+
+java -jar escape-v0.1.jar
+
 http-server ./dist
 
 
