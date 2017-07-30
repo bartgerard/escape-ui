@@ -1,14 +1,13 @@
-import {Component, ContentChild, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {BeepEvent} from "../../model/beep-event";
 import {Observable} from "rxjs/Observable";
-import {Outcome} from "../../model/outcome";
 import {OutcomeEvent} from "../../model/outcome-event";
-import {Light} from "../../model/light";
 import {MissionLightComponent} from "../mission-light/mission-light.component";
 import {CountdownDarkComponent} from "../countdown-dark/countdown-dark.component";
 import {TimeoutEvent} from "../../model/timeout-event";
 import {Base4Component} from "../base4/base4.component";
 import {BombService} from "../../service/bomb.service";
+import "rxjs/add/observable/interval";
 
 @Component({
   selector: 'app-bomb2',

@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {OutcomeEvent} from "../../model/outcome-event";
 import {Subscription} from "rxjs/Subscription";
+import "rxjs/add/observable/interval";
 
 @Component({
   selector: 'app-base4',

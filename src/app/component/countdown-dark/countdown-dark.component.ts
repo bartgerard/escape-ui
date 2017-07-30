@@ -1,11 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MissionService} from "../../service/mission.service";
-import {Mission} from "../../model/mission";
 import {Duration} from "../../model/duration";
 import {Observable} from "rxjs/Observable";
 import {BeepEvent} from "../../model/beep-event";
 import {Subscription} from "rxjs/Subscription";
 import {TimeoutEvent} from "../../model/timeout-event";
+import "rxjs/add/observable/interval";
 
 @Component({
   selector: 'app-countdown-dark',

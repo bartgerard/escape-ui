@@ -53,7 +53,7 @@ npm install http-server -g
 
 java -jar escape-v0.1.jar
 
-http-server ./dist
+http-server ./dist -p 4200
 
 
 ifconfig |grep inet

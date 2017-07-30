@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Team} from "../../model/team";
 import {TeamService} from "../../service/team.service";
 import {Observable} from "rxjs/Observable";
+import "rxjs/add/observable/interval";
 
 @Component({
   selector: 'app-overview',

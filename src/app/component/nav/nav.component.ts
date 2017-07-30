@@ -24,6 +24,8 @@ export class NavComponent implements OnInit {
   start(pin: string, form: NgForm) {
     form.reset();
 
+    console.log(pin);
+
     if (pin === 'bomb1') {
       this.router.navigate(['./bomb']);
     } else if (pin === 'bomb2') {

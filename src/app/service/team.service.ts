@@ -3,6 +3,7 @@ import {Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {Team} from "../model/team";
 import {MissionResult} from "../model/mission-result";
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class TeamService {

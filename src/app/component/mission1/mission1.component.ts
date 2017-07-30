@@ -3,6 +3,9 @@ import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
 import {Router} from "@angular/router";
 import {Duration} from "../../model/duration";
+import "rxjs/add/observable/of";
+import "rxjs/add/operator/delay";
+import "rxjs/add/observable/interval";
 
 @Component({
   selector: 'app-mission1',
