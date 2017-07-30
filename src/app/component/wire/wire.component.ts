@@ -11,7 +11,7 @@ export class WireComponent implements OnInit {
   private baseUri = 'assets/wires/';
   private extension = '.png';
 
-  private wireUris: string[] = [];
+  public wireUris: string[] = [];
 
   private correctWires: boolean[] = [true, false, false, true, false];
 

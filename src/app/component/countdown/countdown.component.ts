@@ -10,14 +10,11 @@ import {Subscription} from "rxjs/Subscription";
 @Component({
   selector: 'app-countdown',
   templateUrl: './countdown.component.html',
-  styleUrls: ['./countdown.component.css'],
-  providers: [
-    MissionService
-  ]
+  styleUrls: ['./countdown.component.css']
 })
 export class CountdownComponent implements OnInit {
-  private mission: Mission;
-  private duration: Duration;
+
+  public duration: Duration;
 
   @Input('enableDays')
   public enableDays: boolean = false;
@@ -36,9 +33,7 @@ export class CountdownComponent implements OnInit {
 
   private subscription: Subscription;
 
-  constructor(
-    public missionService: MissionService
-  ) {
+  constructor() {
   }
 
   ngOnInit() {

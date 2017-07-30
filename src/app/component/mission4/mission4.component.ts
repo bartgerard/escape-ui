@@ -11,7 +11,7 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class Mission4Component implements OnInit {
 
-  private duration: Duration;
+  public duration: Duration;
 
   @ViewChild('videoPlayer')
   videoPlayer: any;

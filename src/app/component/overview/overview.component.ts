@@ -11,7 +11,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class OverviewComponent implements OnInit {
 
-  private teams: Team[] = [];
+  public teams: Team[] = [];
 
   constructor(
     private teamService: TeamService

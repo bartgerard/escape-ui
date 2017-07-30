@@ -8,7 +8,7 @@ import {OutcomeEvent} from "../../model/outcome-event";
 })
 export class KeyPadComponent implements OnInit {
 
-  private display: string = '';
+  public display: string = '';
 
   @Input('maxLength')
   public maxLength: number = 0;

@@ -13,16 +13,17 @@ import {TimeoutEvent} from "../../model/timeout-event";
   styleUrls: ['./countdown-dark.component.css']
 })
 export class CountdownDarkComponent implements OnInit {
-  private duration: Duration;
+
+  public duration: Duration;
 
   @Input('enableDays')
-  private enableDays: boolean = false;
+  public enableDays: boolean = false;
 
   @Input('enableHours')
-  private enableHours: boolean = false;
+  public enableHours: boolean = false;
 
   @Input('enableMilliseconds')
-  private enableMilliseconds: boolean = true;
+  public enableMilliseconds: boolean = true;
 
   @Output('beep')
   private beep: EventEmitter<BeepEvent> = new EventEmitter<BeepEvent>();

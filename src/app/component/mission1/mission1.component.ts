@@ -11,7 +11,7 @@ import {Duration} from "../../model/duration";
 })
 export class Mission1Component implements OnInit {
 
-  private duration: Duration;
+  public duration: Duration;
 
   @ViewChild('videoPlayer')
   videoPlayer: any;

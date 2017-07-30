@@ -11,7 +11,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class Mission3Component implements OnInit {
 
-  private duration: Duration;
+  public duration: Duration;
 
   @ViewChild('videoPlayer')
   videoPlayer: any;
