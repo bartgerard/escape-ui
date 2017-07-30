@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class BombService {
 
-  apiRoot: string = "http://192.168.0.178:8080";
+  //apiRoot: string = "http://192.168.0.178:8080";
 
   constructor(
     private http: Http
@@ -13,7 +13,7 @@ export class BombService {
   }
 
   public isActive(): Observable<boolean> {
-    const url = `${this.apiRoot}/bombs/activated`;
+    const url = `http://${location.hostname}:8080/bombs/activated`;
     return this.http.get(url).map(res => res.text() === 'true');
   }
 

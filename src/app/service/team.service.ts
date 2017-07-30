@@ -7,7 +7,7 @@ import {MissionResult} from "../model/mission-result";
 @Injectable()
 export class TeamService {
 
-  apiRoot: string = "http://192.168.0.178:8080";
+  //apiRoot: string = "http://192.168.0.178:8080";
 
   constructor(
     private http: Http
@@ -15,14 +15,14 @@ export class TeamService {
   }
 
   teams(): Observable<Team[]> {
-    const url = `${this.apiRoot}/teams`;
+    const url = `http://${location.hostname}:8080/teams`;
     return this.http.get(url).map(res => {
       return res.json();
     });
   }
 
   login(password: string): Observable<MissionResult> {
-    const url = `${this.apiRoot}/teams/login?password=${password}`;
+    const url = `http://${location.hostname}:8080/teams/login?password=${password}`;
     return this.http.get(url).map(res => {
       return res.json();
     });

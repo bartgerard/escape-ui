@@ -24,9 +24,9 @@ export class CodepadComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.keys.push(new CodeKey('€', false, 2));
+    this.keys.push(new CodeKey('♅', false, 2));
     this.keys.push(new CodeKey('œ', false, 0));
-    this.keys.push(new CodeKey('š', false, 1));
+    this.keys.push(new CodeKey('ⓢ', false, 1));
     this.keys.push(new CodeKey('Æ', false, 3));
   }
 
