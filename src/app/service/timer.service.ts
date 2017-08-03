@@ -14,11 +14,23 @@ export class TimerService {
   ) {
   }
 
+  delay(
+    seconds: number,
+    observer: () => void
+  ): void {
+    const delayer: Subscription = Observable.of(0)
+      .delay(1000)
+      .map(observer)
+      .subscribe(() => {
+        delayer.unsubscribe();
+      });
+  }
+
   start(
     minutes: number,
     observer: (Duration) => void
   ): void {
-    let end = new Date();
+    const end = new Date();
     end.setMinutes(end.getMinutes() + minutes);
 
     if (this.timer !== null) {
