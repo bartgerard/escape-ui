@@ -2,18 +2,23 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {TeamService} from "../../service/team.service";
+import {TimerService} from "../../service/timer.service";
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
-  providers: [TeamService]
+  providers: [
+    TeamService,
+    TimerService
+  ]
 })
 export class NavComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private timerService: TimerService
   ) {
   }
 
