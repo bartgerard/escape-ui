@@ -1,29 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {TeamService} from "../../service/team.service";
 import {Team} from "../../model/team";
-import {Observable} from "rxjs/Observable";
+import {TimerService} from "../../service/timer.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-end',
   templateUrl: './end.component.html',
   styleUrls: ['./end.component.css'],
-  providers: [TeamService]
+  providers: [
+    TeamService,
+    TimerService
+  ]
 })
 export class EndComponent implements OnInit {
 
   public teams: Team[] = [];
 
   constructor(
-    private teamService: TeamService
+    private router: Router,
+    private teamService: TeamService,
+    private timerService: TimerService
   ) {
   }
 
   ngOnInit() {
     this.refresh();
 
-    Observable.interval(10000).subscribe(() => {
-      this.refresh();
-    });
+    this.timerService.delay(10000, () => this.router.navigate(['./incoming_call']));
   }
 
   refresh(): void {

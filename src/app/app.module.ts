@@ -33,6 +33,7 @@ import {Mission4Component} from './component/mission4/mission4.component';
 import {OverviewComponent} from './component/overview/overview.component';
 import {Bomb2Component} from './component/bomb2/bomb2.component';
 import { EndComponent } from './component/end/end.component';
+import { DoctorVillanComponent } from './component/doctor-villan/doctor-villan.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { EndComponent } from './component/end/end.component';
     Mission4Component,
     OverviewComponent,
     Bomb2Component,
-    EndComponent
+    EndComponent,
+    DoctorVillanComponent
   ],
   imports: [
     BrowserModule,

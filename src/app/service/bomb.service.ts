@@ -18,4 +18,9 @@ export class BombService {
     return this.http.get(url).map(res => res.text() === 'true');
   }
 
+  public activate(): void {
+    const url = `http://${location.hostname}:8080/bombs/activate`;
+    this.http.put(url, null).subscribe();
+  }
+
 }

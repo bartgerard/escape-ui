@@ -9,6 +9,7 @@ import {Mission4Component} from "./component/mission4/mission4.component";
 import {OverviewComponent} from "./component/overview/overview.component";
 import {Bomb2Component} from "./component/bomb2/bomb2.component";
 import {EndComponent} from "./component/end/end.component";
+import {DoctorVillanComponent} from "./component/doctor-villan/doctor-villan.component";
 
 const routes: Routes = [
   {path: '', component: StartComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'mission4', component: Mission4Component},
   {path: 'overview', component: OverviewComponent},
   {path: 'end', component: EndComponent},
+  {path: 'incoming_call', component: DoctorVillanComponent},
   {path: 'bomb', component: BombComponent},
   {path: 'bomb2', component: Bomb2Component}
 ];
