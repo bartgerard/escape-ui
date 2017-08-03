@@ -1,16 +1,17 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
-import {Router} from "@angular/router";
 import {Duration} from "../../model/duration";
 import "rxjs/add/observable/of";
 import "rxjs/add/operator/delay";
 import "rxjs/add/observable/interval";
+import {TimerService} from "../../service/timer.service";
 
 @Component({
   selector: 'app-mission1',
   templateUrl: './mission1.component.html',
-  styleUrls: ['./mission1.component.css']
+  styleUrls: ['./mission1.component.css'],
+  providers: [TimerService]
 })
 export class Mission1Component implements OnInit {
 
@@ -20,7 +21,7 @@ export class Mission1Component implements OnInit {
   videoPlayer: any;
 
   constructor(
-    private router: Router
+    private timerService: TimerService
   ) {
   }
 
@@ -33,24 +34,7 @@ export class Mission1Component implements OnInit {
         subscription.unsubscribe();
       });
 
-    let end = new Date();
-    end.setMinutes(end.getMinutes() + 2);
-
-    let timer = Observable.interval(1000)
-      .subscribe(() => {
-        let now = new Date();
-
-        if (now.getTime() > end.getTime()) {
-          timer.unsubscribe();
-          this.goBack();
-        } else {
-          this.duration = Duration.between(now, end);
-        }
-      });
-  }
-
-  goBack(): void {
-    this.router.navigate(['./start']);
+    this.timerService.start(2, duration => this.duration = duration);
   }
 
 }
