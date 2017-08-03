@@ -30,6 +30,12 @@ export class TimerService {
       });
   }
 
+  stop(): void {
+    if (this.timer !== null) {
+      this.timer.unsubscribe();
+    }
+  }
+
   start(
     minutes: number,
     observer: (Duration) => void

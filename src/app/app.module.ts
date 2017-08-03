@@ -32,6 +32,7 @@ import {Mission3Component} from './component/mission3/mission3.component';
 import {Mission4Component} from './component/mission4/mission4.component';
 import {OverviewComponent} from './component/overview/overview.component';
 import {Bomb2Component} from './component/bomb2/bomb2.component';
+import { EndComponent } from './component/end/end.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {Bomb2Component} from './component/bomb2/bomb2.component';
     Mission3Component,
     Mission4Component,
     OverviewComponent,
-    Bomb2Component
+    Bomb2Component,
+    EndComponent
   ],
   imports: [
     BrowserModule,

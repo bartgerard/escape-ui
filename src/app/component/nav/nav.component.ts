@@ -27,6 +27,7 @@ export class NavComponent implements OnInit {
 
   start(pin: string, form: NgForm) {
     form.reset();
+    this.timerService.stop();
 
     if (pin === 'bomb1') {
       this.router.navigate(['./bomb']);
@@ -34,6 +35,8 @@ export class NavComponent implements OnInit {
       this.router.navigate(['./bomb2']);
     } else if (pin === 'overview') {
       this.router.navigate(['./overview']);
+    } else if (pin === 'end2') {
+      this.router.navigate(['./end']);
     } else {
       this.teamService.login(pin).subscribe(mission => {
         if (mission !== null) {
