@@ -1,7 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Duration} from "../../model/duration";
-import {Observable} from "rxjs/Observable";
-import {Subscription} from "rxjs/Subscription";
 import "rxjs/add/observable/of";
 import "rxjs/add/operator/delay";
 import "rxjs/add/observable/interval";

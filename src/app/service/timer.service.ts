@@ -3,6 +3,10 @@ import {Router} from "@angular/router";
 import {Subscription} from "rxjs/Subscription";
 import {Observable} from "rxjs/Observable";
 import {Duration} from "../model/duration";
+import "rxjs/add/observable/of";
+import "rxjs/add/operator/delay";
+import "rxjs/add/operator/map";
+import "rxjs/add/observable/interval";
 
 @Injectable()
 export class TimerService {
@@ -19,7 +23,7 @@ export class TimerService {
     observer: () => void
   ): void {
     const delayer: Subscription = Observable.of(0)
-      .delay(1000)
+      .delay(seconds)
       .map(observer)
       .subscribe(() => {
         delayer.unsubscribe();

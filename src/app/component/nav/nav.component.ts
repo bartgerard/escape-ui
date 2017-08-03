@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {ButtonModule} from "primeng/primeng";
 import {NgForm} from "@angular/forms";
 import {TeamService} from "../../service/team.service";
 
@@ -24,8 +23,6 @@ export class NavComponent implements OnInit {
   start(pin: string, form: NgForm) {
     form.reset();
 
-    console.log(pin);
-
     if (pin === 'bomb1') {
       this.router.navigate(['./bomb']);
     } else if (pin === 'bomb2') {
@@ -34,19 +31,21 @@ export class NavComponent implements OnInit {
       this.router.navigate(['./overview']);
     } else {
       this.teamService.login(pin).subscribe(mission => {
-        switch (mission.mission) {
-          case 'BLACK_MAMBA':
-            this.router.navigate(['./mission1']);
-            break;
-          case 'SPYGLASS':
-            this.router.navigate(['./mission2']);
-            break;
-          case 'DIGITAL_FORTRESS':
-            this.router.navigate(['./mission3']);
-            break;
-          case 'MINOTAUR':
-            this.router.navigate(['./mission4']);
-            break;
+        if (mission !== null) {
+          switch (mission.mission) {
+            case 'BLACK_MAMBA':
+              this.router.navigate(['./mission1']);
+              break;
+            case 'SPYGLASS':
+              this.router.navigate(['./mission2']);
+              break;
+            case 'DIGITAL_FORTRESS':
+              this.router.navigate(['./mission3']);
+              break;
+            case 'MINOTAUR':
+              this.router.navigate(['./mission4']);
+              break;
+          }
         }
       });
     }

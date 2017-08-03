@@ -25,7 +25,11 @@ export class TeamService {
   login(password: string): Observable<MissionResult> {
     const url = `http://${location.hostname}:8080/teams/login?password=${password}`;
     return this.http.get(url).map(res => {
-      return res.json();
+      if (res.status === 200 && res.text() !== '') {
+        return res.json();
+      } else {
+        return null;
+      }
     });
   }
 
