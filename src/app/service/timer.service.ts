@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {Router} from "@angular/router";
 import {Subscription} from "rxjs/Subscription";
 import {Observable} from "rxjs/Observable";
@@ -9,7 +9,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/observable/interval";
 
 @Injectable()
-export class TimerService {
+export class TimerService implements OnDestroy {
 
   private timer: Subscription = null;
 
@@ -63,6 +63,12 @@ export class TimerService {
 
   goBack(): void {
     this.router.navigate(['./start']);
+  }
+
+  ngOnDestroy(): void {
+    if (this.timer !== null) {
+      this.timer.unsubscribe();
+    }
   }
 
 }
